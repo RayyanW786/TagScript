@@ -210,7 +210,7 @@ class GuildAdapter(AttributeAdapter):
                 humans += 1
         member_count = guild.member_count
         additional_attributes = {
-            "icon": (guild.icon_url, False),
+            "icon": (guild.icon.url, False),
             "member_count": member_count,
             "members": member_count,
             "bots": bots,
