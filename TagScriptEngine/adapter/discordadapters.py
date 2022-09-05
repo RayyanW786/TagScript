@@ -181,8 +181,6 @@ class GuildAdapter(AttributeAdapter):
         The server's ID.
     name
         The server's name.
-    icon
-        A link to the server's icon, which can be used in embeds.
     created_at
         The server's creation date.
     timestamp
@@ -209,9 +207,7 @@ class GuildAdapter(AttributeAdapter):
             else:
                 humans += 1
         member_count = guild.member_count
-        icon_url = getattr(guild.icon, "url", "")
         additional_attributes = {
-            "icon": (icon_url, False),
             "member_count": member_count,
             "members": member_count,
             "bots": bots,
