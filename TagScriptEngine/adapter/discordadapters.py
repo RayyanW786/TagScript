@@ -109,7 +109,7 @@ class MemberAdapter(AttributeAdapter):
             "color": self.object.color,
             "colour": self.object.color,
             "nick": self.object.display_name,
-            "avatar": (self.object.avatar.url, False),
+            "avatar": (self.object.display_avatar.url, False),
             "discriminator": self.object.discriminator,
             "joined_at": getattr(self.object, "joined_at", self.object.created_at),
             "mention": self.object.mention,
