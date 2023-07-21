@@ -77,21 +77,7 @@ class OverrideBlock(Block):
 
     ACCEPTED_NAMES = ("override",)
 
-    # def process(self, ctx: Context) -> Optional[str]:
-    #     param = ctx.verb.parameter
-    #     if not param:
-    #         ctx.response.actions["overrides"] = {"admin": True, "mod": True, "permissions": True}
-    #         return ""
-
-    #     param = param.strip().lower()
-    #     if param not in ("admin", "mod", "permissions"):
-    #         return None
-    #     overrides = ctx.response.actions.get(
-    #         "overrides", {"admin": False, "mod": False, "permissions": False}
-    #     )
-    #     overrides[param] = True
-    #     ctx.response.actions["overrides"] = overrides
-    #     return ""
     def process(self, ctx: Context) -> Optional[str]:
-        # handled within element/utils/checks 
-        ...
+        ctx.response.actions["overrides"] = True
+        return ""
+
