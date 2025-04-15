@@ -194,7 +194,7 @@ class EmbedBlock(Block):
             return str(error)
         if length > 6000:
             return f"`MAX EMBED LENGTH REACHED ({length}/6000)`"
-        ctx.response.actions["embed"] = embed
+        ctx.response.actions["embed"] = embed.to_dict()
         return ""
 
     def process(self, ctx: Context) -> Optional[str]:
