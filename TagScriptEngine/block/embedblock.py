@@ -55,6 +55,14 @@ def add_field(embed: Embed, _: str, payload: str):
     embed.add_field(name=name, value=value, inline=inline)
 
 
+def set_footer(embed: Embed, _: str, payload: str) -> None:
+    data = helper_split(payload, maxsplit=2)
+    if data is None:
+        embed.set_footer(text=payload)
+    else:
+        text, icon_url = data
+        embed.set_footer(text=text, icon_url=icon_url)
+
 class EmbedBlock(Block):
     """
     An embed block will send an embed in the tag response.
@@ -134,6 +142,7 @@ class EmbedBlock(Block):
         "thumbnail": set_dynamic_url,
         "image": set_dynamic_url,
         "field": add_field,
+        "footer": set_footer,
     }
 
     @staticmethod
