@@ -227,7 +227,7 @@ class Interpreter:
         response: Response,
         *,
         charlimit: int,
-        verb_limit: int = 2000,
+        verb_limit: int = 4000,
         dot_parameter: bool,
     ):
         final = message
