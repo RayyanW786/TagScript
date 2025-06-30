@@ -147,7 +147,10 @@ class EmbedBlock(Block):
 
     @staticmethod
     def get_embed(ctx: Context) -> Embed:
-        return ctx.response.actions.get("embed", Embed())
+        embed = ctx.response.actions.get("embed", Embed())
+        if isinstance(embed, dict):
+            return Embed.from_dict(embed)
+        return embed
 
     @staticmethod
     def value_to_color(value: Optional[Union[int, str]]) -> Colour:
